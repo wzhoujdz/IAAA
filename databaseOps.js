@@ -5,7 +5,7 @@ const db = require('./sqlWrap');
 
 // SQL commands for UserInformatoin
 const insertDB = "insert into UserInformatoin (userName, phoneOrEmail, password, securityAnswer ) values (?,?,?,?)"
-const getOneDB = "select * from UserInformatoin where userName = ?";
+const getItemOfUserName = "select * from UserInformatoin where userName = ?";
 //get one db 从database选username=？的值
 const selectAllDB = "select * from UserInformatoin";
 
@@ -38,10 +38,19 @@ async function insertUserInformatoin (userName,phoneOrEmail, password, securityA
   return result;
 }
 
+async function getItemOfUserNameDB (userName) {
+  let result = await db.all(getItemOfUserName,[userName]);
+  console.log('result11111111111111111111111');
+  console.log(result);
+  return result;
+}
+//从数据库获取username的所有的值
 
 
 
 
 module.exports.insertUserInformatoin = insertUserInformatoin;
 module.exports.testDB = testDB;
+module.exports.getItemOfUserNameDB = getItemOfUserNameDB;
+
 

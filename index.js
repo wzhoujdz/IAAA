@@ -34,12 +34,28 @@ app.post('/signIn', async function(request, response, next) {
   var phoneOrEmail=request.body.phoneOrEmail;
   var password=request.body.password;
   var securityAnswer=request.body.securityAnswer;
-  var result=await dbo.insertUserInformatoin(userName,phoneOrEmail, password, securityAnswer);
-  // console.log(result);
-  response.send({
-    message: "I got your POST request",
-    result:result
-  });
+  
+  var getItemOfUserNameDBResult=await dbo.getItemOfUserNameDB(userName);
+  //要找有没有username，有的话就说我有了（if里面
+  //没有就说else里面，我知道了
+  if(
+    getItemOfUserNameDBResult!=undefined&&
+    getItemOfUserNameDBResult!=null&&
+    getItemOfUserNameDBResult.length>0
+  ){
+    response.send({
+      message: "I got your POST request",
+      result:'The userName exists'
+    });
+  }else{
+    var result=await dbo.insertUserInformatoin(userName,phoneOrEmail, password, securityAnswer);
+    // console.log(result);
+    response.send({
+      message: "I got your POST request",
+      result:result
+    });
+  }
+
 });
 
 // listen for requests :)

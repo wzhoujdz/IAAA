@@ -22,6 +22,9 @@ submitButton.addEventListener("click", function(){
           })
           .then(response => response.json())
           .then(data => {
+            if(data.result=='The userName exists'){
+                alert('The userName exists');
+            }
             console.log('Past Activity Success:', data);
           })
     }else{
