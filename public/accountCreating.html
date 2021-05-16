@@ -7,43 +7,60 @@
 	<link href="css/accountCreating.css" rel="stylesheet" type="text/css" />
 	<script defer src="js/accountCreating.js"></script>
 </head>
+<!-- These head codings are connecting this account Creating html window to the css and javascript code -->
 <body style="margin-left:0px;">
     <div style="width: 1024px;height:1024px;font-weight:400;background:white;margin:0 auto">
-	<!-- 最大的狂 -->
+	<!-- set the value of window(The height/ width/ background) And every elements
+		inside should be within this big range -->
 		<div style = "float:left;width:1024px;background:white;">
+			<!-- to set the frame of the window: It is floated from left to right, and the
+			     window is about 1024 px -->
 			<div style = "text-align:center;font-size:25px;color:dodgerblue;font-weight:600;">
 				Creat account
 			</div>
+			<!-- set the title of the window, we can know it is centered from the code
+				"text-align:center", also the font size of the title and color are set
+				by me : 25px and dodgerblue-->
 			<div class="item">
 				Username
 				<input type="text" id="userName" />
 			</div>
+			<!-- use the class I set in .css (will show below) as all these elements are the same 
+				format. Input type is to make it the textfield for people to input-->
 			<div class="item">
 				Email/phone number
 				<input type="text" id="phoneOrEmail" />
 			</div>
+			<!-- use the class I set in .css (will show below) as all these elements are the same 
+				format. Input type is to make it the textfield for people to input-->
 			<div class="item" >
 				Password
 				<input type="text" id="password" />
 			</div>
+			<!-- use the class I set in .css (will show below) as all these elements are the same 
+				format. Input type is to make it the textfield for people to input-->
 			<div class="item">
 				Confirm Password
 				<input type="text" id="confirmPassword" />
 			</div>
-			
+			<!-- use the class I set in .css (will show below) as all these elements are the same 
+				format. Input type is to make it the textfield for people to input-->
 			<div class="item">
 				Security Question
 				<input type="text" id="securityAnswer" placeholder="What is your favorite city?"/>
 			</div>
+			<!-- use the class I set in .css (will show below) as all these elements are the same 
+				format. Input type is to make it the textfield for people to input
+				Placeholder is used for the users to respond the question-->
 			<div style="clear:both"></div> 
 		</div>
 		
 		<div class="submitButton" id="submitButton">
-			
+			Create
 		</div>
+		<!-- To set this button, for the connectivity and switch the window(in css and js part) -->
 	</div>
 </body>
-
 </html>
 
 

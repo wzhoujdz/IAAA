@@ -1,11 +1,12 @@
 let submitButton = document.getElementById("submitButton")
+//define this submit button
 submitButton.addEventListener("click", function(){
     var userName=document.getElementById('userName').value;
     var phoneOrEmail=document.getElementById('phoneOrEmail').value;
     var password=document.getElementById('password').value;
-    //获取这个id的所在的节点
     var confirmPassword=document.getElementById('confirmPassword').value;
     var securityAnswer=document.getElementById('securityAnswer').value;
+    //get the value when id is here 
     if(password==confirmPassword){
         var data = {
             userName: userName,
@@ -13,6 +14,8 @@ submitButton.addEventListener("click", function(){
             password: password,
             securityAnswer:securityAnswer
         }
+        //create condition when the password is the same as confirm password, which means there's nothing wrong
+        //then, set the data value of the variables.
         fetch('/signIn', {
             method: 'POST',
             headers: {
@@ -20,15 +23,20 @@ submitButton.addEventListener("click", function(){
             },
             body: JSON.stringify(data), // post body
           })
+          //as it will be switched to sign in, use these codes to set the condition
           .then(response => response.json())
           .then(data => {
             if(data.result=='The userName exists'){
                 alert('The userName exists');
+                //when the username is existing, it will not continue, and alarm the users to change username
+            }else{
+                alert('Create Successfully');
+                window.location.href="/signIn.html";
             }
+            //if these username is not used, they can create successfully, and then switch to login in
             console.log('Past Activity Success:', data);
           })
     }else{
         alert('password is not the same as confirm password');
-    }
-
+    }//if the passwords are not correct, the codes will stop here with the alarm
 });

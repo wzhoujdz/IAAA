@@ -1,10 +1,14 @@
 .submitButton{
-    width:200px;
+    margin-left:600px;
+    width:50px;
     height:30px;
-    background: yellow;
+    color:white;
+    background: lightgreen;
     cursor: pointer;
     float: left;
+    margin-top: 20px;
 }
+/* set the format of these items and button */
 
 .item{
     float:left;
