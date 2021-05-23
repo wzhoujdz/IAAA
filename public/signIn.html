@@ -39,51 +39,19 @@
 			<!-- use the class I set in .css (will show below) as all these elements are the same 
 				format. Input type is to make it the textfield for people to input-->
 			<div style="clear:both"></div>
-			<button onClick="alertTips()"; 
-			style=margin-left:290px;width:150px;height:30px;color:blue;background:white;:left;margin-top:20px;>
+			<button id="forgetPasswordButtonId" style="margin-left:290px;width:150px;height:30px;color:blue;background:white;float:left;margin-top:20px;">
                 Forget password?
 			</button>
-			<!-- It is used to set the button "Forget password" to let the users find back their passwords. -->
-			<script>
-                function alertTips(){
-                    alert("Your are going to find back your password");
-                    self.location='forgetPassword.html';
-                }
-			</script>
-			<!-- It is used to switch the window, before switching, there is an alter tip -->
-			<button onClick="alertTips()"; style=margin-left:600px;width:50px;height:30px;color:white;background:lightgreen;float:left;margin-top:20px;>
+			<button id="loginButtonId" style="margin-left:600px;width:50px;height:30px;color:white;background:lightgreen;float:left;margin-top:20px;">
                 Login
 			</button>
-			<!-- It is used to set the button "Create account" to let the users set their account. 
-			float: left;
-    margin-left:600px;
-    width:50px;
-    height:30px;
-    color:white;
-    background: lightgreen;
-    cursor: pointer;
-    margin-top: 20px;-->
 			
 			</script>
 			<!-- It's the login Button used in .js to switch window -->
 
-			<button onClick="alertTips()"; style=margin-left:290px;width:150px;height:30px;color:blue;background:white;float:left;margin-top:170px;>
+			<button id="createAccountButtonId" style=margin-left:290px;width:150px;height:30px;color:blue;background:white;float:left;margin-top:170px;>
                 Create account
 			</button>
-			<!-- It is used to set the button "Create account" to let the users set their account. -->
-			<script>
-                function alertTips(){
-                    alert("Your are going to find back your password");
-					self.location='forgetPassword.html';
-                }
-			</script>
-			<!-- It is used to switch the window, before switching, there is an alter tipself.location='accountCreating.html'; -->
-			
-			<script>
-                function alertTips(){
-                    alert("Login Successfully");
-                    
-                }
 		</div>
 	</div>
 </body>

@@ -47,29 +47,47 @@ app.post('/signIn', async function(request, response, next) {
   
 });
 
+app.post('/loginIn', async function(request, response, next) {
+  var userName=request.body.userName;
+  var password=request.body.password;
+  
+  var result=await dbo.getItemOfUserAccountDB(userName,password);
+  //find out whether there is username
+  if(
+    result!=undefined&&
+    result!=null&&
+    result.length>0
+  ){
+    response.send({
+      result: "log in successfully",
+    });
+  }else{
+    response.send({
+      result: "account does not exist",
+    });
+  }
+  
+});
+
+
+
 app.post('/reset', async function(request, response, next) {
-  // console.log("Server recieved a post request at", request.url);
-  // console.log("body",request.body);
   var userName=request.body.userName;
   var phoneOrEmail=request.body.phoneOrEmail;
-  var password=request.body.password;
   var securityAnswer=request.body.securityAnswer;
   
-  var getItemOfUserInformationDBResult=await dbo.getItemOfUserInformationDB(userName,phoneOrEmail, password, securityAnswer);
+  var getItemOfUserInformationDBResult=await dbo.getItemOfUserInformationDB(userName,phoneOrEmail, securityAnswer);
   if(
     getItemOfUserInformationDBResult!=undefined&&
     getItemOfUserInformationDBResult!=null&&
     getItemOfUserInformationDBResult.length>0
   ){
     response.send({
-      message: "I got your POST request",
       result:'The Indentification is ended'
     });
   }else{
-    var result=await dbo.insertUserInformatoin(userName,phoneOrEmail, password, securityAnswer);
     response.send({
-      message: "I got your POST request",
-      result:result
+      result:'Your input is wrong'
     });
   }
   

@@ -39,7 +39,11 @@ async function getItemOfUserInformationDB (userName,phoneOrEmail,securityAnswer)
 }
 //to get above values of username in the database
 async function getItemOfUserAccountDB (userName,password) {
+  var resultAll = await db.all(selectAllDB);
+  console.log('resultAll1111111111111111111111111111');
+  console.log(resultAll);
   let result = await db.all(getItemOfUserAccount,[userName,password]);
+  console.log('result2222222222222222222222222222222');
   console.log(result);
   return result;
 }
