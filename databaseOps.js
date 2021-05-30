@@ -11,26 +11,26 @@ const insertDBMaterial = "insert into Material (materialName, stockTime, useTime
 const insertDBProfit = "insert into Profit (month, profit) values (?,?)"
 async function testDB () {
   await db.deleteEverything();
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-01','2021-05-02',1,5]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-01','2021-05-02',1,5]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-03','2021-05-04',0,50]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-03','2021-05-04',0,50]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-03','2021-05-04',0,50]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-05','2021-05-06',1,5]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-01','2021-05-02',1,20]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-02','2021-05-03',1,15]);
+  await db.run(insertDBMaterial,["cured meat",'2021-05-02','2021-05-03',0,0]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-03','2021-05-04',0,0]);
+  await db.run(insertDBMaterial,["cured meat",'2021-05-03','2021-05-04',1,80]);
+ 
 
 
-  await db.run(insertDBProfit,[1,10]);
-  await db.run(insertDBProfit,[2,20]);
-  await db.run(insertDBProfit,[3,30]);
-  await db.run(insertDBProfit,[4,40]);
-  await db.run(insertDBProfit,[5,50]);
-  await db.run(insertDBProfit,[6,60]);
-  await db.run(insertDBProfit,[7,70]);
-  await db.run(insertDBProfit,[8,80]);
-  await db.run(insertDBProfit,[9,90]);
-  await db.run(insertDBProfit,[10,100]);
-  await db.run(insertDBProfit,[11,110]);
-  await db.run(insertDBProfit,[12,120]);
+  await db.run(insertDBProfit,[1,300]);
+  await db.run(insertDBProfit,[2,200]);
+  await db.run(insertDBProfit,[3,350]);
+  await db.run(insertDBProfit,[4,420]);
+  await db.run(insertDBProfit,[5,530]);
+  await db.run(insertDBProfit,[6,260]);
+  await db.run(insertDBProfit,[7,370]);
+  await db.run(insertDBProfit,[8,480]);
+  await db.run(insertDBProfit,[9,690]);
+  await db.run(insertDBProfit,[10,300]);
+  await db.run(insertDBProfit,[11,610]);
+  await db.run(insertDBProfit,[12,420]);
 
 }
 
