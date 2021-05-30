@@ -18,6 +18,7 @@ async function testDB () {
   await db.run(insertDBMaterial,["spicy duck neck",'2021-05-03','2021-05-04',0,50]);
   await db.run(insertDBMaterial,["spicy duck neck",'2021-05-05','2021-05-06',1,5]);
 
+
   await db.run(insertDBProfit,[1,10]);
   await db.run(insertDBProfit,[2,20]);
   await db.run(insertDBProfit,[3,30]);
@@ -36,6 +37,7 @@ async function testDB () {
 async function insertUserInformatoin (userName,phoneOrEmail, password, securityAnswer) {
   await db.run(insertDB,[userName,phoneOrEmail, password, securityAnswer]);
   var result = await db.all(selectAllDB);
+  console.log(result);
   return result;
 }
 
@@ -49,8 +51,6 @@ async function getItemOfMaterialDB (materialName, stockTime, useTime, availabili
 async function getItemOfProfitDB (startTime, endTime) {
   const selectAllDBProfit = "select * from Profit where month >= ? and month <= ?";
   let result = await db.all(selectAllDBProfit,[startTime, endTime]);
-  // const selectAllDBProfit = "select * from Profit";
-  // let result = await db.all(selectAllDBProfit);
   console.log(result);
   return result;
 }
@@ -70,10 +70,8 @@ async function getItemOfUserInformationDB (userName,phoneOrEmail,securityAnswer)
 //to get above values of username in the database
 async function getItemOfUserAccountDB (userName,password) {
   var resultAll = await db.all(selectAllDB);
-  console.log('resultAll1111111111111111111111111111');
   console.log(resultAll);
   let result = await db.all(getItemOfUserAccount,[userName,password]);
-  console.log('result2222222222222222222222222222222');
   console.log(result);
   return result;
 }
