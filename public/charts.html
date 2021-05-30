@@ -8,7 +8,7 @@
 	<script defer src="js/charts.js"></script>
 </head>
 <body style="margin-left:0px;">
-    <div style="width: 1024px;height:1024px;font-weight:400;background:white;margin:0 auto;">
+    <div style="width: 1024px;font-weight:400;background:white;margin:0 auto;">
         <div style = "float:left;width:1024px;background:white;">
             <div id="homeID"; style = "float:left;margin-left:10px;">	
                 <img src="./img/home.png" style="width:45px;height:45px"/>
@@ -16,29 +16,31 @@
             <div style = "float:left;margin-left: 300px;">
                 <img src="./img/chart.png" style="width:45px;height:45px"/>
             </div> 
-			<div style = "float:left;margin-left: 30px;font-size:30px;color:navy;font-weight:600;">
+			<div style = "float:left;margin-left: 40px;font-size:30px;color:navy;font-weight:600;">
 				Charts
             </div>   
         </div> 
-        <div style = "float:left;margin-left:10px;margin-top:10px;border-bottom:3px solid black;width:1024px;height:1px;color:black;background:green;">	
+        <div style = "float:left;margin-top:10px;border-bottom:3px solid black;width:1024px;height:1px;color:black;background:green;">	
         </div>
-        <div style="float:left; margin-left: 50px;font-size:20px;color:blue;font-weight:500;">
-            Start time
-            <input type="text" id="startTime" />
-            <!-- ！时间？ -->
-        </div> 
-        <div style="clear:both"></div>
-        <div style="float:left;margin-left:50px;font-size:20px;color:blue;font-weight:500;margin-top:50px;">
-            End time
-            <input type="text" id="endTime" />
-            <!-- ！时间？ -->
-            <!--Why not inthe left?-->
-        </div>  
-        <div style="clear:both"></div>
-        <button id="checkButtonId" style="margin-top:60px;font-size:20px;float:left;margin-left:50px;width:80px;height:30px;background:lightskyblue;float:left;">
-            Check
-            <!--更奇怪了在第一行-->
-        </button>
+        <div style="float:left;width: 1024px;">
+            <div style="float: left; width:350px;">
+                <div style="float:left; width:350px;font-size:20px;color:blue;font-weight:500;">
+                    Start time
+                    <input type="date" id="startTime" />
+                </div> 
+                <div style="clear:both"></div>
+                <div style="float:left;width:350px;font-size:20px;color:blue;font-weight:500;margin-top:50px;">
+                    End time
+                    <input type="date" id="endTime" />
+                </div>  
+                <button id="checkButtonId" style="margin-top:60px;font-size:20px;float:left;width:80px;height:30px;background:lightskyblue;">
+                    Check
+                </button>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        
+
 	</div>
 	
 </body>
