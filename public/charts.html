@@ -5,7 +5,8 @@
 	<style type="text/css">
 	</style>
 	<link href="css/charts.css" rel="stylesheet" type="text/css" />
-	<script defer src="js/charts.js"></script>
+	
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
 <body style="margin-left:0px;">
     <div style="width: 1024px;font-weight:400;background:white;margin:0 auto;">
@@ -26,23 +27,26 @@
             <div style="float: left; width:350px;">
                 <div style="float:left; width:350px;font-size:20px;color:blue;font-weight:500;">
                     Start time
-                    <input type="date" id="startTime" />
+                    <input type="number" id="startTime" />
                 </div> 
                 <div style="clear:both"></div>
                 <div style="float:left;width:350px;font-size:20px;color:blue;font-weight:500;margin-top:50px;">
                     End time
-                    <input type="date" id="endTime" />
+                    <input type="number" id="endTime" />
                 </div>  
                 <button id="checkButtonId" style="margin-top:60px;font-size:20px;float:left;width:80px;height:30px;background:lightskyblue;">
                     Check
                 </button>
                 <div style="clear:both"></div>
             </div>
+            <div style="float: left; width:670px;height:600px;" id="chartContainerID">
+
+            </div>
         </div>
         
 
 	</div>
-	
+    <script defer src="js/charts.js"></script>
 </body>
 </html>
 

@@ -93,6 +93,35 @@ app.post('/reset', async function(request, response, next) {
   
 });
 
+app.post('/searchCharts', async function(request, response, next) {
+  var startTime=request.body.startTime;
+  var endTime=request.body.endTime;
+  
+  var result=await dbo.getItemOfProfitDB(startTime,endTime);
+  //find out whether there is username
+  response.send({
+    result: "searchCharts successfully",
+    data:result,
+  });
+  
+});
+
+
+app.post('/searchTable', async function(request, response, next) {
+  var materialName=request.body.materialName;
+  var stockTime=request.body.stockTime;
+  var useTime=request.body.useTime;
+  var availability=request.body.availability;
+  var materialNumber=request.body.materialNumber;
+  
+  var result=await dbo.getItemOfMaterialDB(materialName,stockTime,useTime,availability,materialNumber);
+  //find out whether there is username
+  response.send({
+    result: "searchTable successfully",
+    data:result,
+  });
+  
+});
 
 // listen for requests :)
 const listener = app.listen(3000, () => {
