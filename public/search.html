@@ -8,9 +8,9 @@
 	<script defer src="js/search.js"></script>
 </head>
 <body style="margin-left:0px;">
-    <div style="width: 1024px;height:1024px;font-weight:400;background:white;margin:0 auto">
-        <div style = "float:left;width:1024px;background:white;">
-            <div style = "float:left;margin-left:10px;">	
+    <div style="width: 1024px;height:1024px;font-weight:400;background:white;margin:0 auto;">
+        <div style = "float:left;width:1024px;background:white;margin:0 auto">
+            <div id="homeID" style = "float:left;margin-left:10px;">	
                 <img src="./img/home.png" style="width:45px;height:45px"/>
             </div> 
             <div style = "float:left;margin-left: 300px;">
@@ -20,23 +20,48 @@
 				Goods Search
             </div>   
         </div> 
-		<div style = "float:left;margin-left:10px;margin-top:10px;border-bottom:3px solid black;width:1024px;height:1px;color:black;background:green;">	
-        </div>     
-        <div style = "float:left;font-size:20px;color:blue;font-weight:500;">
-            Available or Not
-        </div>   
-        <div style = "float:left;font-size:20px;color:blue;font-weight:500;">
-            <input type="radio"  value="Yes">Yes
-            <input type="radio" value="Not">No 
-        </div>      
-        <div style="float:left; margin-left: 50px;font-size:20px;color:blue;font-weight:500;">
-            Material Number
-            <input type="text" id="materialNumber" />
-        </div>  
 
-        <button id="searchButtonId" style="margin-left:50px;width:80px;height:30px;background:lightskyblue;float:left;">
-            Search
-        </button>
+		<div style = "float:left;margin-left:10px;margin-top:10px;border-bottom:3px solid black;width:1024px;height:1px;color:black;background:green;">	
+        </div> 
+
+        <div style="width: 1024px;height:100px;font-weight:400;margin:0 auto;background:white">
+            <!--why cannot margin top/-->
+            <!---->
+            <div style = "float:left;font-size:20px;color:blue;font-weight:500;margin-top:10px;">
+                Material name
+                <input type="text" id="materialName" />
+            </div>   
+            <div style="float:left; margin-left: 50px;font-size:20px;color:blue;font-weight:500;margin-top:10px">
+                Stock time
+                <input type="text" id="stockTime" />
+                <!-- ！时间？ -->
+            </div>  
+            <div style="float:left; margin-left: 50px;font-size:20px;color:blue;font-weight:500;margin-top:10px">
+                Use time
+                <input type="text" id="useTime" />
+                <!-- ！时间？ -->
+            </div>  
+        </div>
+
+        <div style="width: 1024px;height:100px;font-weight:400;margin-top:60px;background:white">
+            <div style = "float:left;font-size:20px;color:blue;font-weight:500;">
+                Available or Not
+            </div>   
+            <div style = "float:left;font-size:20px;color:black;font-weight:500;">
+                <input type="radio"  value="Yes">Yes
+                <input type="radio" value="Not">No 
+               <!-- 为什么两个都可以按 --> 
+            </div>      
+            <div style="float:left; margin-left: 50px;font-size:20px;color:blue;font-weight:500;">
+                Material Number
+                <input type="text" id="materialNumber" />
+            </div>  
+            <button id="searchButtonId" style="font-size:20px;margin-left:50px;width:80px;height:30px;background:lightskyblue;float:left;">
+                Search
+            </button>
+        </div>
+
+        
        
 	</div>
 	

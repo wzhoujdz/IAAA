@@ -14,13 +14,13 @@ calculationImgId.addEventListener("click",function(){
 let chartId = document.getElementById("chartId")
 
 chartId.addEventListener("click", function(){
-  window.location.href="../chart.html"
+  window.location.href="../charts.html"
 });
 
 let chartImgId = document.getElementById("chartImgId")
 
 chartImgId.addEventListener("click",function(){
-  window.location.href="../chart.html"
+  window.location.href="../charts.html"
 })
 
 let goodSearchImgId = document.getElementById("goodSearchImgId")
