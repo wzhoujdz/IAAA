@@ -26,11 +26,11 @@ app.post('/signIn', async function(request, response, next) {
   var securityAnswer=request.body.securityAnswer;
   
   var getItemOfUserNameDBResult=await dbo.getItemOfUserNameDB(userName);
-  //find out whether there is username
   if(
     getItemOfUserNameDBResult!=undefined&&
     getItemOfUserNameDBResult!=null&&
     getItemOfUserNameDBResult.length>0
+    //check whether the username has been used
   ){
     response.send({
       message: "I got your POST request",
@@ -38,7 +38,6 @@ app.post('/signIn', async function(request, response, next) {
     });
   }else{
     var result=await dbo.insertUserInformatoin(userName,phoneOrEmail, password, securityAnswer);
-    // console.log(result);
     response.send({
       message: "I got your POST request",
       result:result
@@ -52,7 +51,8 @@ app.post('/loginIn', async function(request, response, next) {
   var password=request.body.password;
   
   var result=await dbo.getItemOfUserAccountDB(userName,password);
-  //find out whether there is username
+  //find out whether the usernmae and password exist
+  //and test whether they can login successfully
   if(
     result!=undefined&&
     result!=null&&
@@ -81,6 +81,7 @@ app.post('/reset', async function(request, response, next) {
     getItemOfUserInformationDBResult!=undefined&&
     getItemOfUserInformationDBResult!=null&&
     getItemOfUserInformationDBResult.length>0
+    //check whether the reset information is correct
   ){
     response.send({
       result:'The Indentification is ended'
@@ -88,7 +89,7 @@ app.post('/reset', async function(request, response, next) {
   }else{
     response.send({
       result:'Your input is wrong'
-    });
+    });//if not correct, output the warning
   }
   
 });
@@ -98,7 +99,6 @@ app.post('/searchCharts', async function(request, response, next) {
   var endTime=request.body.endTime;
   
   var result=await dbo.getItemOfProfitDB(startTime,endTime);
-  //find out whether there is username
   response.send({
     result: "searchCharts successfully",
     data:result,
@@ -115,8 +115,7 @@ app.post('/searchTable', async function(request, response, next) {
   var materialNumber=request.body.materialNumber;
   
   var result=await dbo.getItemOfMaterialDB(materialName,stockTime,useTime,availability,materialNumber);
-  //find out whether there is username
-  response.send({
+    response.send({
     result: "searchTable successfully",
     data:result,
   });

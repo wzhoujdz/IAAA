@@ -2,24 +2,20 @@ let loginButtonId = document.getElementById("loginButtonId");
 let createAccountButtonId = document.getElementById("createAccountButtonId");
 let forgetPasswordButtonId = document.getElementById("forgetPasswordButtonId");
 
-
-//define this login button
+//when clicked that login button, the code will be executed
 loginButtonId.addEventListener("click", function(){
     var userName=document.getElementById('userName').value;
     var password=document.getElementById('password').value;
-    //It is used to get the data at this time of username and password
         var data = {
             userName: userName,
             password: password,
         }
-        //define data now, can be connected to the database(show later)
         fetch('/loginIn', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            //js formate
-            body: JSON.stringify(data), // post body
+            body: JSON.stringify(data), 
           })
           .then(response => response.json())
           .then(data => {
@@ -29,7 +25,9 @@ loginButtonId.addEventListener("click", function(){
             }else{
                 alert('account does not exist');
             }
-          })//show in the console back end   
+            //if user information is correct, switch window and output success
+            //else ouput failure
+          })
 });
 
 createAccountButtonId.addEventListener("click", function(){

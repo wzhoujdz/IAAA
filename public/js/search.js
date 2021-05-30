@@ -18,37 +18,36 @@ searchButtonId.addEventListener("click", function(){
 
   var availability
   var obj=document.getElementsByName("availability")
-  for (var i=0;i<obj.length;i++){ //遍历Radio
+  for (var i=0;i<obj.length;i++){ //get the value of radio(used online source, see appendix)
     if(obj[i].checked){
       availability=obj[i].value;
-    }
+    }//if click that radio button, the data is extracted
   }
-  console.log('1111111111111111111111111111');
-  console.log(materialName);
-  console.log(stockTime);
-  console.log(useTime);
-  console.log(availability);
-  console.log(materialNumber);
+   //these lines(14-25) are used to get the value 
   var data = {
       materialName: materialName,
       stockTime: stockTime,
       useTime: useTime,
       availability: availability,
       materialNumber: materialNumber,
-  }
+  }    
+ 
+  //send request to the backend
   fetch('/searchTable', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      //js formate
-      body: JSON.stringify(data), // post body
+      
+      body: JSON.stringify(data), 
     })
     .then(response => response.json())
     .then(data => {
       if(data.result=='searchTable successfully'){
           console.log(data);
+          //if response is correct, draw the table
           for(var i=0;i<data.data.length;i++){
+            //for is used to draw each line
             var row = document.createElement('div');
             row.classList.add("row");
             var col1 = document.createElement('div');
@@ -82,6 +81,7 @@ searchButtonId.addEventListener("click", function(){
           }
       }else{
           alert('wrong');
+          //else, do not draw the table
       }
     }) 
 });

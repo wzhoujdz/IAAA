@@ -1,5 +1,5 @@
 let submitButton = document.getElementById("submitButton")
-//define this submit button
+//define this submit button for clicking and changing interfere
 submitButton.addEventListener("click", function(){
     var userName=document.getElementById('userName').value;
     var phoneOrEmail=document.getElementById('phoneOrEmail').value;
@@ -21,7 +21,7 @@ submitButton.addEventListener("click", function(){
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data), // post body
+            body: JSON.stringify(data), 
           })
           //as it will be switched to sign in, use these codes to set the condition
           .then(response => response.json())

@@ -1,5 +1,5 @@
 let calculationId = document.getElementById("calculationId")
-
+//let is used to define buttons, for clicking and switching the interfaces
 calculationId.addEventListener("click", function(){
   window.location.href="../calculation.html"
 });
