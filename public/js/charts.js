@@ -1,13 +1,11 @@
 let homeID = document.getElementById("homeID");
 let chartContainerID = document.getElementById("chartContainerID")
 let checkButtonId = document.getElementById("checkButtonId")
-
-
-
+//define these buttons for clicking and changing interfere
 homeID.addEventListener("click", function(){
   window.location.href="../dashboard.html"
 });
-
+//set the command for the button to switch window
 checkButtonId.addEventListener("click", function(){
   var startTime = document.getElementById("startTime").value;
   var endTime = document.getElementById("endTime").value;
@@ -15,6 +13,7 @@ checkButtonId.addEventListener("click", function(){
       startTime: startTime,
       endTime: endTime,
   }
+  //set values for thse components 
   fetch('/searchCharts', {
       method: 'POST',
       headers: {
@@ -25,17 +24,16 @@ checkButtonId.addEventListener("click", function(){
     .then(response => response.json())
     .then(data => {
       if(data.result=='searchCharts successfully'){
+        //use if...else loop to check whether the charts are correct or not
         console.log(data);
-
         var myChart = echarts.init(chartContainerID);
         var xAxisData=[];
         var seriesData=[];
         for(var i=0;i<data.data.length;i++){
           xAxisData.push(data.data[i].month)
           seriesData.push(data.data[i].profit)
-        }
-
-        // 指定图表的配置项和数据
+        }//use for loop to repeat push the data from database into the chart
+        //asign the chart with the values 
         var option = {
             title: {
                 text: 'monthly profit'
@@ -54,16 +52,10 @@ checkButtonId.addEventListener("click", function(){
                 data:seriesData
             }]
         };
-
-        // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-
-
-
-
       }else{
           alert('wrong');
-      }//when input is wrong
+      }//when input is wrong, show this alert
     })
 });
 

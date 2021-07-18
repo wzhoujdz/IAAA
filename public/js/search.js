@@ -1,23 +1,18 @@
 let homeID = document.getElementById("homeID")
 let searchButtonId = document.getElementById("searchButtonId");
 let tableId = document.getElementById("tableId");
-
+// set ID for these button
 homeID.addEventListener("click", function(){
   window.location.href="../dashboard.html"
 });
-
-
-
-
-
 searchButtonId.addEventListener("click", function(){
   var materialName = document.getElementById("materialName").value;
   var stockTime = document.getElementById("stockTime").value;
   var useTime = document.getElementById("useTime").value;
   var materialNumber = document.getElementById("materialNumber").value;
-
   var availability
   var obj=document.getElementsByName("availability")
+  //set the values for the variables I need in this window
   for (var i=0;i<obj.length;i++){ //get the value of radio(used online source, see appendix)
     if(obj[i].checked){
       availability=obj[i].value;
@@ -31,7 +26,6 @@ searchButtonId.addEventListener("click", function(){
       availability: availability,
       materialNumber: materialNumber,
   }    
- 
   //send request to the backend
   fetch('/searchTable', {
       method: 'POST',
@@ -75,9 +69,7 @@ searchButtonId.addEventListener("click", function(){
             row.append(col3);
             row.append(col4);
             row.append(col5);
-
             tableId.append(row);
-            
           }
       }else{
           alert('wrong');

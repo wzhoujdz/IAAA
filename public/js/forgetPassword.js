@@ -9,8 +9,7 @@ checkButtonId.addEventListener("click", function(){
         userName: userName,
         phoneOrEmail:phoneOrEmail,
         securityAnswer:securityAnswer
-    }
-    //send request to the backend
+    } //send request to the backend
     fetch('/reset', {
         method: 'POST',
         headers: {
