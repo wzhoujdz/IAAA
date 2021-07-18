@@ -51,10 +51,21 @@ async function getItemOfProfitDB (startTime, endTime) {
   return result;
 }
 //to get the values of profit in the charts interface in the database-
+// async function getItemOfUserNameDB (userName) {
+//   let result = await db.all(getItemOfUserName,[userName]);
+//   console.log(result);
+//   return result;
+// }
 async function getItemOfUserNameDB (userName) {
-  let result = await db.all(getItemOfUserName,[userName]);
+  let result = await db.all("select * from UserInformatoin");
   console.log(result);
-  return result;
+  let returnResult=[];
+  for(var i=0;i<result.length;i++){
+    if(result[i].userName==userName){
+      returnResult.push(result[i]);
+    }
+  }
+  return returnResult;
 }
 //to get the values of username in the database
 async function getItemOfUserInformationDB (userName,phoneOrEmail,securityAnswer) {
