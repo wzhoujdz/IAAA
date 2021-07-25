@@ -8,7 +8,7 @@ revenueId.addEventListener("click", function(){
 });
 let profitId=document.getElementById("profitId")
 profitId.addEventListener("click", function(){
-    window.location.href="./profit.html"
+    window.location.href="./profits.html"
 });
 let fixedCostId=document.getElementById("fixedCostId")
 fixedCostId.addEventListener("click", function(){
