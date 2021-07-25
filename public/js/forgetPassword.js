@@ -21,7 +21,7 @@ checkButtonId.addEventListener("click", function(){
       .then(data => {
         if(data.result=='The Indentification is ended'){
              alert('Correctly');
-             window.location.href="/resetPassword.html";
+             window.location.href="/resetPassword.html?userName="+userName;
          }else{
             alert('Your input is wrong');
         }//if the result sent back from back end is correct, we can go to the reset page,
