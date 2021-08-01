@@ -22,7 +22,7 @@ $(document).ready(function(){
         var total = parseFloat(employmentFees)+parseFloat(rentalFees)+parseFloat(utilityFees);
         console.log(total);
 
-
+        $("#space").html('');
         $("#space").append(
             '<div class="format">'+
                 'employment fees: $'+employmentFees+
@@ -34,6 +34,21 @@ $(document).ready(function(){
                 'utility fees: $' + utilityFees+
             '</div>'
         )
-    });
+        $("#totalCost").append(
+            '<div class="format2">'+
+                "$"+
+                total+
+            '</div>'
+        )
     
+    });
+
+    let resetId=document.getElementById("resetId");
+    resetId.addEventListener("click", function(){
+        $("#space").html('');
+        $("#employmentFees").val('');
+        $("#rentalFees").val('');
+        $("#utilityFees").val('');
+        $("#totalCost").html('');
+    });
 });
