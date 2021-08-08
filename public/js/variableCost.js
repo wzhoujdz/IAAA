@@ -31,8 +31,11 @@ $(document).ready(function(){
     
 
     let submitId=document.getElementById("submitId");
-    let submitGetAllValue=[];
+    let dateLeft = document.getElementById("dateLeft");
+    let dateRight = document.getElementById("dateRight");
     submitId.addEventListener("click", function(){
+        let submitGetAllValue=[];
+        $("#dateRight").val($("#dateLeft").val());
         for(let i=1;i<=spaceItemNumber;i++){
             let thisMaterialName=$("#materialName"+i).val();
             let thisMaterialNumber=parseFloat($("#materialNumber"+i).val());
@@ -45,6 +48,16 @@ $(document).ready(function(){
         }
         console.log('submitGetAllValue111111111111111111');
         console.log(submitGetAllValue);
+        let totalCostValue=0;
+        for(let i=0;i<submitGetAllValue.length;i++){
+            $("#showArea").append(
+                '<div style = "float:left;font-size:20px;margin-top:5px;width:400px;text-align:center;">'+
+                submitGetAllValue[i].materialName+'+'+submitGetAllValue[i].materialNumber+'grams+$'+submitGetAllValue[i].materialCost+
+                '</div> '
+            ) 
+            totalCostValue=totalCostValue+submitGetAllValue[i].materialNumber*submitGetAllValue[i].materialCost
+        }
+        $("#totalCostValueId").html('$'+totalCostValue);
     });
 
 
