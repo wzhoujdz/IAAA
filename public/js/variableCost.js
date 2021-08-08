@@ -46,7 +46,6 @@ $(document).ready(function(){
                 materialCost:thisMaterialCost
             })
         }
-        console.log('submitGetAllValue111111111111111111');
         console.log(submitGetAllValue);
         let totalCostValue=0;
         for(let i=0;i<submitGetAllValue.length;i++){

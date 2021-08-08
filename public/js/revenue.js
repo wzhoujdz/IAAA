@@ -31,6 +31,35 @@ $(document).ready(function(){
         )
     });
 
-    
+    let submitId=document.getElementById("submitId");
+    let dateLeft = document.getElementById("dateLeft");
+    let dateRight = document.getElementById("dateRight");
+    submitId.addEventListener("click", function(){
+        let submitGetAllValue=[];
+        $("#dateRight").val($("#dateLeft").val());
+        for(let i=1;i<=spaceItemNumber;i++){
+            let thisFoodName=$("#foodName"+i).val();
+            let thisFoodNumber=parseFloat($("#foodNumber"+i).val());
+            let thisFoodPrice=parseFloat($("#foodPrice"+i).val());
+            let thisDiscount=parseFloat($("#discount"+i).val());
+            submitGetAllValue.push({
+                foodName:thisFoodName,
+                foodNumber:thisFoodNumber,
+                foodPrice:thisFoodPrice,
+                discount:thisDiscount
+            })
+        }
+        console.log(submitGetAllValue);
+        let totalRevenueValue=0;
+        for(let i=0;i<submitGetAllValue.length;i++){
+            $("#showArea").append(
+                '<div style = "float:left;font-size:20px;margin-top:5px;width:400px;text-align:center;">'+
+                submitGetAllValue[i].foodName+'+'+submitGetAllValue[i].foodNumber+'+$'+submitGetAllValue[i].foodPrice+'+'+submitGetAllValue[i].discount+
+                '</div> '
+            ) 
+            totalRevenueValue=totalRevenueValue+submitGetAllValue[i].foodNumber*submitGetAllValue[i].foodPrice*submitGetAllValue[i].discount
+        }
+        $("#totalRevenueId").html('$'+totalRevenueValue);
+    });
     
 });
