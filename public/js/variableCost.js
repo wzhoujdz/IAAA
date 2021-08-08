@@ -59,6 +59,16 @@ $(document).ready(function(){
         $("#totalCostValueId").html('$'+totalCostValue);
     });
 
-
+    let resetId=document.getElementById("resetId");
+    resetId.addEventListener("click", function(){
+        for(let i=1;i<=spaceItemNumber;i++){
+            $("#materialNumber"+i).val(null);
+            $("#materialCost"+i).val(null);
+        }
+        $("#dateLeft").val(null);
+        $("#dateRight").val(null);
+        $("#totalCostValueId").html(null);
+        $("#showArea").html(null);
+    });
 
 });

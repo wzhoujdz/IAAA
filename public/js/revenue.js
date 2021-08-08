@@ -62,4 +62,16 @@ $(document).ready(function(){
         $("#totalRevenueId").html('$'+totalRevenueValue);
     });
     
+    let resetId=document.getElementById("resetId");
+    resetId.addEventListener("click", function(){
+        for(let i=1;i<=spaceItemNumber;i++){
+            $("#foodNumber"+i).val(null);
+            $("#foodPrice"+i).val(null);
+            $("#discount"+i).val(null);
+        }
+        $("#dateLeft").val(null);
+        $("#dateRight").val(null);
+        $("#totalRevenueId").html(null);
+        $("#showArea").html(null);
+    });
 });
