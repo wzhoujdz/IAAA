@@ -34,7 +34,7 @@
                 Date
                 <input type="date" id="date" />
             </div> 
-            <div style = "float:left; width:512px; height:200px">
+            <div style = "float:left; width:512px; height:100px">
                 <div style = "float:left;margin-left: 40px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
                     food name
                 </div>  
@@ -47,10 +47,34 @@
                 <div style = "float:left;margin-left: 40px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
                    discount
                 </div>  
-                <div style = "float:left;margin-left: 310px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
+                <div style = "float:left;margin-left: 310px; font-size:20px;color:blue;font-weight:500;margin-top:5px;">
                 (per day)
                 </div>  
             </div>
+            <div id="space" style = "float:left; width:520px;">
+                <div style = "float:left;margin-left: 35px; font-size:20px;margin-top:5px">
+                    <select id="foodName1" class="input">
+                        <option value="spicy duck neck">spicy duck neck</option>
+                        <option value="cured meat">cured meat</option>
+                        <option value="marinated trotters">marinated trotters</option>
+                      </select>
+                </div>
+                <div style = "float:left;margin-left: 30px; font-size:20px;margin-top:5px;">                    
+                    <input style= "width: 90px;height:25px" type="text" id="foodNumber1" />
+                </div> 
+                <div style = "float:left;margin-left: 30px; font-size:20px;margin-top:5px;">                    
+                    <input style= "width: 90px;height:25px" type="text" id="foodPrice1" />
+                </div> 
+                <div style = "float:left;margin-left:30px; font-size:20px;margin-top:5px;">                    
+                    <input style= "width: 90px;height:25px" type="text" id="discount1" />
+                </div> 
+            </div>
+            <div id="addId" style = "float:left;margin-left:500px;margin-top:10px;text-align: center;color:azure; font-size:20px;border-radius:10px;font-weight:800;width:20px;height:20px;background: blue;">
+                +
+            </div> 
+
+           
+            
             <button id="resetId" style="margin-left:140px;width:70px;height:30px;color:white;background:#818289c4;float:left;margin-top:150px;">
 				Reset
             </button>
