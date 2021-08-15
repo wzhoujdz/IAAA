@@ -79,7 +79,6 @@ async function getItemOfUserInformationDB (userName,phoneOrEmail,securityAnswer)
 async function setNewPasswordDB (newPassword,confirmNewPassword, userName) {
   let result = await db.all(setNewPassword,[newPassword,userName]);
   var resultAll = await db.all(selectAllDB);
-  console.log('111111111111111222222222222222223333333333333');
   console.log(resultAll);
   console.log(result);
   return result;

@@ -101,7 +101,6 @@ app.post('/setNewPassword', async function(request, response, next) {
   var userName=request.body.userName;
   
   var result=await dbo.setNewPasswordDB(newPassword,confirmNewPassword, userName);
-  console.log('result111111111111111111111111');
   console.log(result);
   if(
     result!=undefined&&
