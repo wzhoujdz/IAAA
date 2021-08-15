@@ -18,16 +18,14 @@ $(document).ready(function(){
       if(obj[i].checked){
         availability=obj[i].value;
       }//if click that radio button, the data is extracted
-    }
-     //these lines(14-25) are used to get the value 
+    } //these lines(14-25) are used to get the value 
     var data = {
         materialName: materialName,
         stockTime: stockTime,
         useTime: useTime,
         availability: availability,
         materialNumber: materialNumber,
-    }    
-    //send request to the backend
+    }    //send request to the backend
     fetch('/searchTable', {
         method: 'POST',
         headers: {
@@ -48,23 +46,18 @@ $(document).ready(function(){
               var col1 = document.createElement('div');
               col1.classList.add("col");
               col1.innerHTML = data.data[i].materialName;
-  
               var col2 = document.createElement('div');
               col2.classList.add("col");
               col2.innerHTML = data.data[i].stockTime;
-  
               var col3 = document.createElement('div');
               col3.classList.add("col");
               col3.innerHTML = data.data[i].useTime;
-  
               var col4 = document.createElement('div');
               col4.classList.add("col");
               col4.innerHTML = data.data[i].availability;
-  
               var col5 = document.createElement('div');
               col5.classList.add("col-right");
               col5.innerHTML = data.data[i].materialNumber;     
-  
               row.append(col1);
               row.append(col2);
               row.append(col3);

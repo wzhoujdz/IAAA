@@ -8,9 +8,13 @@ $(document).ready(function(){
         window.location.href="../calculation.html"
     });
     let spaceItemNumber=1;
+    //define variable
     let addId=document.getElementById("addId");
+    //define variable
     addId.addEventListener("click", function(){
+        //set the event listener 
         spaceItemNumber=spaceItemNumber+1;
+        //when clicking, the number will increase, so there will be a line more
         $("#space").append(
         '<div style = "float:left;margin-left: 40px; font-size:20px;margin-top:5px">'+
             '<select id="materialName'+spaceItemNumber+'" class="input">'+
@@ -26,6 +30,7 @@ $(document).ready(function(){
             '<input style= "width: 120px;height:25px" type="text" id="materialCost'+spaceItemNumber+'" />'+
         '</div> '
         )
+        //here is for adding a line into the place, adding spaceItemNumber helps me to detect the time and for a better calculation
     });
 
     

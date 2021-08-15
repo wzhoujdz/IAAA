@@ -8,7 +8,7 @@ const selectAllDB = "select * from UserInformatoin";
 const insertDBMaterial = "insert into Material (materialName, stockTime, useTime, availability ,materialNumber) values (?,?,?,?,?)"
 const insertDBProfit = "insert into Profit (month, profit) values (?,?)"
 const setNewPassword = "update UserInformatoin set password = ? where userName = ?"
-//在数据库里搜索
+//Search in database
 async function testDB () {
   await db.deleteEverything();
   //insert data into the search page
@@ -31,7 +31,7 @@ async function testDB () {
   await db.run(insertDBProfit,[11,610]);
   await db.run(insertDBProfit,[12,420]);
 }
-//插入数据
+
 //insert data into database
 async function insertUserInformatoin (userName,phoneOrEmail, password, securityAnswer) {
   await db.run(insertDB,[userName,phoneOrEmail, password, securityAnswer]);
@@ -54,11 +54,7 @@ async function getItemOfProfitDB (startTime, endTime) {
   return result;
 }
 //to get the values of profit in the charts interface in the database-
-// async function getItemOfUserNameDB (userName) {
-//   let result = await db.all(getItemOfUserName,[userName]);
-//   console.log(result);
-//   return result;
-// }
+
 async function getItemOfUserNameDB (userName) {
   let result = await db.all("select * from UserInformatoin");
   console.log(result);

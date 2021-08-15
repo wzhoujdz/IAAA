@@ -27,18 +27,8 @@ $(document).ready(function(){
                         window.location.href="/dashboard.html";
                         break;
                     default:
-                        alert('account does not exist');
+                        alert('account does not exist/ your password is wrong');
                } 
-    
-                // if(data.result=='log in successfully'){
-                //     alert('log in successfully');
-                //      window.location.href="/dashboard.html";
-                // }else{
-                //     alert('account does not exist');
-                // }
-                //use of If...else
-                //if user information is correct, switch window and output success
-                //else ouput failure
               })
     });
     
