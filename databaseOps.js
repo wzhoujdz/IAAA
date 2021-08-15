@@ -7,6 +7,7 @@ const getItemOfUserInformation = "select * from UserInformatoin where userName =
 const selectAllDB = "select * from UserInformatoin";
 const insertDBMaterial = "insert into Material (materialName, stockTime, useTime, availability ,materialNumber) values (?,?,?,?,?)"
 const insertDBProfit = "insert into Profit (month, profit) values (?,?)"
+const setNewPassword = "update UserInformatoin set password = ? where userName = ?"
 async function testDB () {
   await db.deleteEverything();
   //insert data into the search page
@@ -73,6 +74,17 @@ async function getItemOfUserInformationDB (userName,phoneOrEmail,securityAnswer)
   console.log(result);
   return result;
 }
+
+//to get the values of username in the database
+async function setNewPasswordDB (newPassword,confirmNewPassword, userName) {
+  let result = await db.all(setNewPassword,[newPassword,userName]);
+  var resultAll = await db.all(selectAllDB);
+  console.log('111111111111111222222222222222223333333333333');
+  console.log(resultAll);
+  console.log(result);
+  return result;
+}
+
 //to get above values of user information in the database
 async function getItemOfUserAccountDB (userName,password) {
   var resultAll = await db.all(selectAllDB);
@@ -89,6 +101,7 @@ module.exports.insertUserInformatoin = insertUserInformatoin;
 module.exports.testDB = testDB;
 module.exports.getItemOfUserNameDB = getItemOfUserNameDB;
 module.exports.getItemOfUserInformationDB = getItemOfUserInformationDB;
+module.exports.setNewPasswordDB = setNewPasswordDB;
 module.exports.getItemOfUserAccountDB = getItemOfUserAccountDB;
 module.exports.getItemOfMaterialDB = getItemOfMaterialDB;
 module.exports.getItemOfProfitDB = getItemOfProfitDB;

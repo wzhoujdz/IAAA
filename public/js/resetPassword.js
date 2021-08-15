@@ -1,14 +1,17 @@
 $(document).ready(function(){
   var loginButtonId = document.getElementById("loginButtonId")
   //define this check button
-  checkButtonId.addEventListener("click", function(){
+  loginButtonId.addEventListener("click", function(){
       var newPassword=document.getElementById('newPassword').value;
       var confirmNewPassword=document.getElementById('confirmNewPassword').value;
+      var userName   =window.location.search.toString().split('=')[1];
+      
       var data = {
           newPassword: newPassword,
-          confirmNewPassword:confirmNewPassword
+          confirmNewPassword:confirmNewPassword,
+          userName:userName,
       } //send request to the backend
-      fetch('/reset', {
+      fetch('/setNewPassword', {
           method: 'POST',
           headers: {
         'Content-Type': 'application/json'
@@ -19,7 +22,7 @@ $(document).ready(function(){
         .then(data => {
           if(data.result=='The Indentification is ended'){
                alert('Correctly');
-               window.location.href="/dashboard.html";
+               window.location.href="/signIn.html";
            }else{
               alert('Your input is wrong');
           }

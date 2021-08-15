@@ -94,6 +94,33 @@ app.post('/reset', async function(request, response, next) {
   
 });
 
+
+app.post('/setNewPassword', async function(request, response, next) {
+  var newPassword=request.body.newPassword;
+  var confirmNewPassword=request.body.confirmNewPassword;
+  var userName=request.body.userName;
+  
+  var result=await dbo.setNewPasswordDB(newPassword,confirmNewPassword, userName);
+  console.log('result111111111111111111111111');
+  console.log(result);
+  if(
+    result!=undefined&&
+    result!=null&&
+    result.length==0
+    //check whether the reset information is correct
+  ){
+    response.send({
+      result:'The Indentification is ended'
+    });
+  }else{
+    response.send({
+      result:'Your input is wrong'
+    });//if not correct, output the warning
+  }
+  
+});
+
+
 app.post('/searchCharts', async function(request, response, next) {
   var startTime=request.body.startTime;
   var endTime=request.body.endTime;
