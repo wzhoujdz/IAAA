@@ -8,14 +8,15 @@ const selectAllDB = "select * from UserInformatoin";
 const insertDBMaterial = "insert into Material (materialName, stockTime, useTime, availability ,materialNumber) values (?,?,?,?,?)"
 const insertDBProfit = "insert into Profit (month, profit) values (?,?)"
 const setNewPassword = "update UserInformatoin set password = ? where userName = ?"
+//在数据库里搜索
 async function testDB () {
   await db.deleteEverything();
   //insert data into the search page
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-01','2021-05-02',1,20]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-02','2021-05-03',1,15]);
-  await db.run(insertDBMaterial,["cured meat",'2021-05-02','2021-05-03',0,0]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-05-03','2021-05-04',0,0]);
-  await db.run(insertDBMaterial,["cured meat",'2021-05-03','2021-05-04',1,80]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-08-01','2021-08-02',1,20]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-08-02','2021-08-03',1,15]);
+  await db.run(insertDBMaterial,["cured meat",'2021-08-02','2021-08-03',0,0]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-08-03','2021-08-04',0,0]);
+  await db.run(insertDBMaterial,["cured meat",'2021-08-03','2021-08-04',1,80]);
   //insert the data into the charts page
   await db.run(insertDBProfit,[1,300]);
   await db.run(insertDBProfit,[2,200]);
@@ -30,6 +31,7 @@ async function testDB () {
   await db.run(insertDBProfit,[11,610]);
   await db.run(insertDBProfit,[12,420]);
 }
+//插入数据
 //insert data into database
 async function insertUserInformatoin (userName,phoneOrEmail, password, securityAnswer) {
   await db.run(insertDB,[userName,phoneOrEmail, password, securityAnswer]);

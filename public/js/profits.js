@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     let searchId = document.getElementById("searchId");
     searchId.addEventListener("click", function(){
-       
+       $('#calendar').show();
     });
     
 });
