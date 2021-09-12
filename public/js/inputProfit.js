@@ -9,4 +9,34 @@ $(document).ready(function(){
     calculationId.addEventListener("click", function(){
         window.location.href="../calculation.html"
     });
+
+
+    submitButton.addEventListener("click", function(){
+        var date=document.getElementById('date').value;
+        var cost=document.getElementById('cost').value;
+        var revenue=revenue.getElementById('revenue').value;
+        var data = {
+            date: date,
+            cost: cost,
+            revenue: revenue
+        }
+        fetch('/inputProfit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data), 
+        })
+        .then(response => response.json())
+        .then(data => {
+            switch(data.result) {
+                case 'log in successfully':
+                    alert('log in successfully');
+                    window.location.href="/dashboard.html";
+                    break;
+                default:
+                    alert('account does not exist/ your password is wrong');
+            } 
+        })
+    });
 });
