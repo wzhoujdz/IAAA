@@ -148,6 +148,18 @@ app.post('/searchTable', async function(request, response, next) {
   
 });
 
+
+app.post('/inputProfit', async function(request, response, next) {
+  var date=request.body.date;
+  var costs=request.body.costs;
+  var revenue=request.body.revenue;
+  console.log("1111111111111111111111111111111111111111");
+  console.log(date);
+  console.log(costs);
+  console.log(revenue)
+  
+});
+
 // listen for requests :)
 const listener = app.listen(3000, () => {
   console.log("The static server is listening on port " + listener.address().port);
