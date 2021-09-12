@@ -7,6 +7,8 @@
     cursor: pointer;
     float: left;
     margin-top: 20px;
+    text-align: center;
+    line-height: 30px;
 }
 /* set the format of these items and button */
 
