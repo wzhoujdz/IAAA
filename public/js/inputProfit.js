@@ -9,15 +9,14 @@ $(document).ready(function(){
     calculationId.addEventListener("click", function(){
         window.location.href="../calculation.html"
     });
-
-
+    let submitButton = document.getElementById("submitButton");
     submitButton.addEventListener("click", function(){
         var date=document.getElementById('date').value;
-        var cost=document.getElementById('cost').value;
-        var revenue=revenue.getElementById('revenue').value;
+        var costs=document.getElementById('costs').value;
+        var revenue=document.getElementById('revenue').value;
         var data = {
             date: date,
-            cost: cost,
+            costs: costs,
             revenue: revenue
         }
         fetch('/inputProfit', {
