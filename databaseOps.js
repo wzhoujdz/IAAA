@@ -39,6 +39,19 @@ async function insertUserInformatoin (userName,phoneOrEmail, password, securityA
   console.log(result);
   return result;
 }
+
+
+//insert data into database
+async function insertRevenue (userName,phoneOrEmail, password, securityAnswer) {
+  const insertRevenueDB = "insert into UserInformatoin (userName, phoneOrEmail, password, securityAnswer ) values (?,?,?,?)"
+  await db.run(insertDB,[userName,phoneOrEmail, password, securityAnswer]);
+  var result = await db.all(selectAllDB);
+  console.log(result);
+  return result;
+}
+
+
+
 //to get the data of the user in the forget password page
 async function getItemOfMaterialDB (materialName, stockTime, useTime, availability ,materialNumber) {
   const selectAllDBMaterial = "select * from Material where materialName = ? and stockTime = ? and useTime = ? and availability = ? and materialNumber = ?";

@@ -107,6 +107,53 @@ function createProfit() {
 }
 
 
+
+
+
+let cmdRevenue = " SELECT name FROM sqlite_master WHERE type='table' AND name='Revenue' ";
+
+db.get(cmdRevenue, function (err, val) {
+  //conduct the command 
+  //If there is no database, then we will create one, 
+  //if there is one, we just use the existing one 
+  if (val == undefined) {
+        console.log("No database file - creating one");
+        createRevenue();
+  } else {
+        console.log("Database file found");
+  }
+  //create database
+});
+
+// called to create table if needed
+function createRevenue() {
+  // explicitly declaring the rowIdNum protects rowids from changing if the 
+  // table is compacted; not an issue here, but good practice
+  const cmdCreateRevenue = 'CREATE TABLE Revenue (rowIdNum INTEGER PRIMARY KEY, costs FLOAT, revenue FLOAT, profit FLOAT, date DATE)';
+  //rawIDNum is the row number, the only primary key
+  db.run(cmdCreateRevenue, function(err, val) {
+    if (err) {
+      console.log("Database creation failure",err.message);
+      //set error
+    } else {
+      console.log("Created database");
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // wrap all database commands in promises
 db.run = util.promisify(db.run);
 db.get = util.promisify(db.get);
