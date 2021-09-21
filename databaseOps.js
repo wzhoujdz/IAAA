@@ -33,7 +33,7 @@ async function testDB () {
 }
 
 //insert data into database
-async function insertUserInformatoin (userName,phoneOrEmail, password, securityAnswer) {
+async function insertUserInformation (userName,phoneOrEmail, password, securityAnswer) {
   await db.run(insertDB,[userName,phoneOrEmail, password, securityAnswer]);
   var result = await db.all(selectAllDB);
   console.log(result);
@@ -107,7 +107,7 @@ async function getItemOfUserAccountDB (userName,password) {
 
 
 
-module.exports.insertUserInformatoin = insertUserInformatoin;
+module.exports.insertUserInformation = insertUserInformation;
 module.exports.testDB = testDB;
 module.exports.getItemOfUserNameDB = getItemOfUserNameDB;
 module.exports.getItemOfUserInformationDB = getItemOfUserInformationDB;

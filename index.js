@@ -37,7 +37,7 @@ app.post('/signIn', async function(request, response, next) {
       result:'The userName exists'
     });
   }else{
-    var result=await dbo.insertUserInformatoin(userName,phoneOrEmail, password, securityAnswer);
+    var result=await dbo.insertUserInformation(userName,phoneOrEmail, password, securityAnswer);
     response.send({
       message: "I got your POST request",
       result:result
