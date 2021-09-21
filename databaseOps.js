@@ -42,10 +42,12 @@ async function insertUserInformation (userName,phoneOrEmail, password, securityA
 
 
 //insert data into database
-async function insertRevenue (userName,phoneOrEmail, password, securityAnswer) {
-  const insertRevenueDB = "insert into UserInformatoin (userName, phoneOrEmail, password, securityAnswer ) values (?,?,?,?)"
-  await db.run(insertDB,[userName,phoneOrEmail, password, securityAnswer]);
-  var result = await db.all(selectAllDB);
+async function insertRevenue (costs,revenue, profit, date) {
+  const insertRevenueDB = "insert into Revenue (costs, revenue, profit, date ) values (?,?,?,?)"
+  await db.run(insertRevenueDB,[costs,revenue, profit, date]);
+
+  const selectAllRevenueDB = "select * from Revenue";
+  var result = await db.all(selectAllRevenueDB);
   console.log(result);
   return result;
 }
@@ -115,6 +117,8 @@ module.exports.setNewPasswordDB = setNewPasswordDB;
 module.exports.getItemOfUserAccountDB = getItemOfUserAccountDB;
 module.exports.getItemOfMaterialDB = getItemOfMaterialDB;
 module.exports.getItemOfProfitDB = getItemOfProfitDB;
+module.exports.insertRevenue = insertRevenue;
+
 //to export these values from the database for my use
 
 

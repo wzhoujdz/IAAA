@@ -29,12 +29,11 @@ $(document).ready(function(){
         .then(response => response.json())
         .then(data => {
             switch(data.result) {
-                case 'log in successfully':
-                    alert('log in successfully');
-                    window.location.href="/dashboard.html";
+                case 'successfully':
+                    alert('INPUT successfully');
                     break;
                 default:
-                    alert('account does not exist/ your password is wrong');
+                    alert('Your INPUT is wrong');
             } 
         })
     });

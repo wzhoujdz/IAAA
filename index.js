@@ -153,10 +153,21 @@ app.post('/inputProfit', async function(request, response, next) {
   var date=request.body.date;
   var costs=request.body.costs;
   var revenue=request.body.revenue;
-  console.log("1111111111111111111111111111111111111111");
-  console.log(date);
+  var profit=revenue-costs;
+
+  var result=await dbo.insertRevenue(costs,revenue,profit,date);
+  response.send({
+    result: "successfully",
+    data:result,
+  });
+
+  console.log("aa1111111111111111111111111111111111111111");
   console.log(costs);
-  console.log(revenue)
+  console.log(revenue);
+  console.log(profit);
+  console.log(date);
+  console.log(result);
+  console.log("bbbb1111111111111111111111111111111111111111");
   
 });
 
