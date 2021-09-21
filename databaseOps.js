@@ -48,7 +48,6 @@ async function insertRevenue (costs,revenue, profit, date) {
 
   const selectAllRevenueDB = "select * from Revenue";
   var result = await db.all(selectAllRevenueDB);
-  console.log(result);
   return result;
 }
 
