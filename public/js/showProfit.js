@@ -27,10 +27,24 @@ $(document).ready(function(){
         .then(data => {
             switch(data.result) {
                 case 'successfully':
-                    alert('INPUT successfully');
+                    console.log('data.result111111111111111');
+                    console.log(data.data);
+                    for(var i=0;i<data.data.length;i++){
+                        var thisValue=data.data[i].date;
+                        var thisDataArray=  thisValue.split('-');
+                        var thisData=thisDataArray[2];
+ 
+                        var realId=parseInt(thisData);
+                        console.log('thisData111111');
+                        console.log(realId);
+                        $("#costOfDate"+realId).html("$"+data.data[i].costs);
+                        $("#revenueOfDate"+realId).html("$"+data.data[i].revenue);
+                        $("#profitOfDate"+realId).html("$"+data.data[i].profit);
+
+                    }
                     break;
                 default:
-                    alert('Your INPUT is wrong');
+                    alert('Something is wrong');
             } 
         })
     });
