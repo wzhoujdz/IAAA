@@ -164,6 +164,7 @@ db.deleteEverything = async function() {
   await db.run("delete from UserInformatoin");
   await db.run("delete from Material");
   await db.run("delete from Profit");
+  await db.run("delete from Revenue");
   db.run("vacuum");
 }
 
