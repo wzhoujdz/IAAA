@@ -48,9 +48,19 @@ async function insertRevenue (costs,revenue, profit, date) {
 
   const selectAllRevenueDB = "select * from Revenue";
   var result = await db.all(selectAllRevenueDB);
+  console.log('result------------------------------------all--11111111111111');
+  console.log(result);
   return result;
 }
 
+
+async function getRevenue (startTime,endTime) {
+  const getRevenueDB = "select * from Revenue where date>='"+startTime+"' and date<='"+endTime+"'"
+  var result = await db.all(getRevenueDB);
+  console.log('result------------------------------------date--2222222222222222');
+  console.log(result);
+  return result;
+}
 
 
 //to get the data of the user in the forget password page
@@ -117,6 +127,7 @@ module.exports.getItemOfUserAccountDB = getItemOfUserAccountDB;
 module.exports.getItemOfMaterialDB = getItemOfMaterialDB;
 module.exports.getItemOfProfitDB = getItemOfProfitDB;
 module.exports.insertRevenue = insertRevenue;
+module.exports.getRevenue = getRevenue;
 
 //to export these values from the database for my use
 

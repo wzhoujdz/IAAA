@@ -159,16 +159,19 @@ app.post('/inputProfit', async function(request, response, next) {
   response.send({
     result: "successfully",
     data:result,
-  });
+  });  
+});
 
-  console.log("aa1111111111111111111111111111111111111111");
-  console.log(costs);
-  console.log(revenue);
-  console.log(profit);
-  console.log(date);
-  console.log(result);
-  console.log("bbbb1111111111111111111111111111111111111111");
+
+app.post('/showProfit', async function(request, response, next) {
+  var startTime=request.body.startTime;
+  var endTime=request.body.endTime;
   
+  var result=await dbo.getRevenue(startTime,endTime);
+  response.send({
+    result: "successfully",
+    data:result,
+  });  
 });
 
 // listen for requests :)
