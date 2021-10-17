@@ -28,7 +28,9 @@ $(document).ready(function(){
               .then(response => response.json())
               .then(data => {
                 if(data.result=='The userName exists'){
-                    alert('The userName exists');
+                    
+                    $('#dialogId').show();
+                    $('#dialogContentId').html('The user name exists/ Your input is not available');
                     //when the username is existing, it will not continue, and alarm the users to change username
                 }else{
                     alert('Create Successfully');
@@ -41,7 +43,9 @@ $(document).ready(function(){
             alert('password is not the same as confirm password');
         }//if the passwords are not correct, the codes will stop here with the alarm
     });
-    
+    $("#dialogButtonId").click(function(){
+        $('#dialogId').hide();
+    });
     
     
 });
