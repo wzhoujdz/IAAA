@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    let isSuccessful=false;
     let submitButton = document.getElementById("submitButton")
     //define this submit button for clicking and changing interfere
     submitButton.addEventListener("click", function(){
@@ -31,10 +32,13 @@ $(document).ready(function(){
                     
                     $('#dialogId').show();
                     $('#dialogContentId').html('The user name exists/ Your input is not available');
+                    isSuccessful=false;
                     //when the username is existing, it will not continue, and alarm the users to change username
                 }else{
-                    alert('Create Successfully');
-                    window.location.href="/signIn.html";
+                    $('#dialogId').show();
+                    $('#dialogContentId').html('Create Successfully');
+                    isSuccessful=true;
+                    
                 }
                 //if these username is not used, they can create successfully, and then switch to login in
                 console.log('Past Activity Success:', data);
@@ -44,7 +48,12 @@ $(document).ready(function(){
         }//if the passwords are not correct, the codes will stop here with the alarm
     });
     $("#dialogButtonId").click(function(){
-        $('#dialogId').hide();
+        if(isSuccessful==true){
+            $('#dialogId').hide();
+            window.location.href="/signIn.html";
+        }else{
+            $('#dialogId').hide();
+        }
     });
     
     

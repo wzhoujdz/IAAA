@@ -1,4 +1,15 @@
 $(document).ready(function(){
+    let search=location.search.split('?')[1];
+    let searchArray=search.split('&');
+    let searchObject={};
+    for(let i=0;i<searchArray.length;i++){
+        let  key=searchArray[i].split('=')[0];
+        let  value=searchArray[i].split('=')[1];
+        searchObject[key]=value;
+    }
+
+    $("#date").val(searchObject.date);
+    $("#revenue").val(searchObject.revenue);
     let homeID = document.getElementById("homeID");
       //define buttons for clicking 
     homeID.addEventListener("click", function(){

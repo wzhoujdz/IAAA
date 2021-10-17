@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    let totalRevenueValue=0;
     let homeID = document.getElementById("homeID");
     homeID.addEventListener("click", function(){
         window.location.href="../dashboard.html"
@@ -50,7 +51,7 @@ $(document).ready(function(){
             })
         }
         console.log(submitGetAllValue);
-        let totalRevenueValue=0;
+        totalRevenueValue=0;
         for(let i=0;i<submitGetAllValue.length;i++){
             $("#showArea").append(
                 '<div style = "float:left;font-size:20px;margin-top:5px;width:400px;text-align:center;">'+
@@ -74,4 +75,9 @@ $(document).ready(function(){
         $("#totalRevenueId").html(null);
         $("#showArea").html(null);
     });
+
+    $("#nextId").click(function(){
+        window.location.href="/inputProfit.html?date="+$("#dateLeft").val()+'&revenue='+totalRevenueValue;
+    });
+    
 });
