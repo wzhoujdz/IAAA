@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    let isSuccessful=false;
     let search=location.search.split('?')[1];
     let searchArray=search.split('&');
     let searchObject={};
@@ -42,11 +43,23 @@ $(document).ready(function(){
         .then(data => {
             switch(data.result) {
                 case 'successfully':
-                    alert('INPUT successfully');
+                    $('#dialogId').show();
+                    $('#dialogContentId').html('INPUT successfully');
+                    isSuccessful=true;
                     break;
                 default:
-                    alert('Your INPUT is wrong');
+                    $('#dialogId').show();
+                    $('#dialogContentId').html('Your Input is wrong');
+                    isSuccessful=false;
             } 
         })
+    });
+    $("#dialogButtonId").click(function(){
+        if(isSuccessful==true){
+            $('#dialogId').hide();
+            window.location.href="/showProfit.html";
+        }else{
+            $('#dialogId').hide();
+        }
     });
 });

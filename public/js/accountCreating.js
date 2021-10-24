@@ -29,7 +29,6 @@ $(document).ready(function(){
               .then(response => response.json())
               .then(data => {
                 if(data.result=='The userName exists'){
-                    
                     $('#dialogId').show();
                     $('#dialogContentId').html('The user name exists/ Your input is not available');
                     isSuccessful=false;

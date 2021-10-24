@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    let isSuccessful=false;
     let loginButtonId = document.getElementById("loginButtonId");
     let createAccountButtonId = document.getElementById("createAccountButtonId");
     let forgetPasswordButtonId = document.getElementById("forgetPasswordButtonId");
@@ -23,13 +24,18 @@ $(document).ready(function(){
               .then(data => {
                 switch(data.result) {
                     case 'log in successfully':
-                        alert('log in successfully');
-                        window.location.href="/dashboard.html";
+                        $('#dialogId').show();
+                        $('#dialogContentId').html('log in successfully');
+                        isSuccessful=true;
                         break;
                     default:
-                        alert('account does not exist/ your password is wrong');
+                        $('#dialogId').show();
+                        $('#dialogContentId').html('account does not exist/ your password is wrong');
+                        isSuccessful=false;
                } 
+               console.log('Past Activity Success:', data);
               })
+           
     });
     
     createAccountButtonId.addEventListener("click", function(){
@@ -38,6 +44,14 @@ $(document).ready(function(){
     
     forgetPasswordButtonId.addEventListener("click", function(){
         window.location.href="/forgetPassword.html"; 
+    });
+    $("#dialogButtonId").click(function(){
+        if(isSuccessful==true){
+            $('#dialogId').hide();
+            window.location.href="/dashboard.html";
+        }else{
+            $('#dialogId').hide();
+        }
     });
     
     

@@ -12,24 +12,24 @@ const setNewPassword = "update UserInformatoin set password = ? where userName =
 async function testDB () {
   await db.deleteEverything();
   //insert data into the search page
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-08-01','2021-08-02',1,20]);
-  await db.run(insertDBMaterial,["spicy duck neck",'2021-08-02','2021-08-03',1,15]);
-  await db.run(insertDBMaterial,["cured meat",'2021-08-02','2021-08-03',0,0]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-10-01','2021-10-02',1,20]);
+  await db.run(insertDBMaterial,["spicy duck neck",'2021-10-02','2021-10-03',1,15]);
+  await db.run(insertDBMaterial,["cured meat",'2021-10-02','2021-10-03',0,0]);
   await db.run(insertDBMaterial,["spicy duck neck",'2021-08-03','2021-08-04',0,0]);
   await db.run(insertDBMaterial,["cured meat",'2021-08-03','2021-08-04',1,80]);
   //insert the data into the charts page
-  await db.run(insertDBProfit,[1,300]);
-  await db.run(insertDBProfit,[2,200]);
-  await db.run(insertDBProfit,[3,350]);
-  await db.run(insertDBProfit,[4,420]);
-  await db.run(insertDBProfit,[5,530]);
-  await db.run(insertDBProfit,[6,260]);
-  await db.run(insertDBProfit,[7,370]);
-  await db.run(insertDBProfit,[8,480]);
-  await db.run(insertDBProfit,[9,690]);
-  await db.run(insertDBProfit,[10,300]);
-  await db.run(insertDBProfit,[11,610]);
-  await db.run(insertDBProfit,[12,420]);
+  await db.run(insertDBProfit,[1,0]);
+  await db.run(insertDBProfit,[2,0]);
+  await db.run(insertDBProfit,[3,0]);
+  await db.run(insertDBProfit,[4,0]);
+  await db.run(insertDBProfit,[5,0]);
+  await db.run(insertDBProfit,[6,0]);
+  await db.run(insertDBProfit,[7,0]);
+  await db.run(insertDBProfit,[8,0]);
+  await db.run(insertDBProfit,[9,0]);
+  await db.run(insertDBProfit,[10,20.6]);
+  await db.run(insertDBProfit,[11,0]);
+  await db.run(insertDBProfit,[12,0]);
 }
 
 //insert data into database
@@ -48,7 +48,6 @@ async function insertRevenue (costs,revenue, profit, date) {
 
   const selectAllRevenueDB = "select * from Revenue";
   var result = await db.all(selectAllRevenueDB);
-  console.log('result------------------------------------all--11111111111111');
   console.log(result);
   return result;
 }
@@ -57,7 +56,6 @@ async function insertRevenue (costs,revenue, profit, date) {
 async function getRevenue (startTime,endTime) {
   const getRevenueDB = "select * from Revenue where date>='"+startTime+"' and date<='"+endTime+"'"
   var result = await db.all(getRevenueDB);
-  console.log('result------------------------------------date--2222222222222222');
   console.log(result);
   return result;
 }
