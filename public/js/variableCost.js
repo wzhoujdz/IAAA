@@ -78,5 +78,7 @@ $(document).ready(function(){
         $("#totalCostValueId").html(null);
         $("#showArea").html(null);
     });
-
+    $("#nextId").click(function(){
+        window.location.href="/inputProfit.html?date="+$("#dateLeft").val()+'&variableCost='+totalRevenueValue;
+    });
 });

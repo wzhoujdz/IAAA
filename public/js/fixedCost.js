@@ -56,4 +56,7 @@ $(document).ready(function(){
         $("#utilityFees").val('');
         $("#totalCost").html('');
     });
+    $("#nextId").click(function(){
+        window.location.href="/inputProfit.html?date="+$("#dateLeft").val()+'&revenue='+totalRevenueValue;
+    });
 });
