@@ -26,7 +26,7 @@
         </div> 
         <div style = "float:left;margin-left:10px;margin-top:10px;border-bottom:3px solid black;width:1024px;height:1px;color:black;background:green;">	
         </div> 
-        <div style = "float:left; width:512px; height:1024px">
+        <div style = "float:left; width:512px; height:1024px; margin-left:270px">
             <div style = "float:left; width:512px">
                 <div style = "float: left;margin-top:50px; margin-left:170px;text-align:center;font-size:25px; color:navy;font-weight:700;">
                     Store Data
@@ -37,55 +37,41 @@
                     ( Per month )
                 </div> 
             </div>
-            <div style = "float:left;margin-left: 140px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
-                employment fees
-                <input style= "width: 100px" type="text" id="employmentFees" />
-            </div>  
-            <div style = "float:left;margin-left: 140px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
-                rental fees
-                <input style= "width: 100px;margin-left: 54px;" type="text" id="rentalFees" />
-            </div>  
-            <div style = "float:left;margin-left: 140px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
-                utility fees
-                <input style= "width: 100px; margin-left: 51px;" type="text" id="utilityFees" />
-            </div>  
+            <div style="float:left;margin-top:20px;width:512px">
+                <div style = "float:left;margin-left: 140px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
+                    employment fees
+                    <input style= "width: 100px" type="text" id="employmentFees" />
+                </div>  
+                <div style = "float:left;margin-left: 140px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
+                    rental fees
+                    <input style= "width: 100px;margin-left: 54px;" type="text" id="rentalFees" />
+                </div>  
+                <div style = "float:left;margin-left: 140px; font-size:20px;color:blue;font-weight:500;margin-top:30px;">
+                    utility fees
+                    <input style= "width: 100px; margin-left: 51px;" type="text" id="utilityFees" />
+                </div>  
+            </div>
 
-            <button id="resetId" style="margin-left:140px;width:70px;height:30px;color:white;background:#818289c4;float:left;margin-top:100px;">
+            <button id="resetId" style="margin-left:140px;width:70px;height:30px;color:white;background:#818289c4;float:left;margin-top:50px;">
 				Reset
             </button>
-            <button id="submitId" style="margin-left:110px;width:70px;height:30px;color:white;background:#39cd3f;float:left;margin-top:100px;">
+            <button id="submitId" style="margin-left:110px;width:70px;height:30px;color:white;background:#39cd3f;float:left;margin-top:50px;">
 				Submit
-			</button>
+            </button>
+            
+            <div>
+                <div style = "float:left; width:500px; height:1024px">
+                    <div style = "float: left;margin-top:60px; margin-left:120px;font-size:20px; color:blue;font-weight:500;">
+                        Total Costs
+                    </div>
+                    <div id= "totalCost" style = "float: left;margin-top:60px; margin-left:120px;font-size:20px; color:black;font-weight:500;">
+                    </div>
+            </div>
+
         </div>
 
-        <div style = "float:left; margin-top:15px;width:4px; height:450px;background:black;">
         </div>
-_
-        <div style = "float:left; width:500px; height:1024px">
-            <div style = "float:left; width:500px; height:100px">
-                <div style = "float: left;margin-top:50px; margin-left:170px;text-align:center;font-size:25px; color:navy;font-weight:700;">
-                    Calculation Space
-                </div>
-            </div>
-            <div style = "float:left; width:100px; height:100px">
-                <div style = "float: left;margin-top:50px; margin-left:100px;font-size:20px; color:blue;font-weight:500;">
-                    Costs
-                </div>
-            </div>
-            <div style = "float:left; width:400px; height:200px">
-                <div id="space" style = "float: left;margin-top:50px; width:300px; height:200px; margin-left:50px;font-size:20px; color:blue;font-weight:500;border:1px solid black;">
-                </div>
-            </div>
-            <div style = "float:left; width:500px; height:1024px">
-                <div style = "float: left;margin-top:100px; margin-left:120px;font-size:20px; color:blue;font-weight:500;">
-                    Total Costs
-                </div>
-                <div id= "totalCost" style = "float: left;margin-top:100px; margin-left:120px;font-size:20px; color:black;font-weight:500;">
-                </div>
-            </div>
-        </div>  
-        </div>
-=
+
     </div>
 
 	<script defer src="js/fixedCost.js"></script>
