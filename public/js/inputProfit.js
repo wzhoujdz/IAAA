@@ -10,6 +10,7 @@ $(document).ready(function(){
 
     $("#date").val(searchObject.date);
     $("#revenue").val(searchObject.revenue);
+    $("#costs").val(parseFloat(searchObject.fixedCost)+parseFloat(searchObject.variableCost));
     let homeID = document.getElementById("homeID");
       //define buttons for clicking 
     homeID.addEventListener("click", function(){

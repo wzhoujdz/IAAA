@@ -9,7 +9,7 @@ $(document).ready(function(){
     calculationId.addEventListener("click", function(){
         window.location.href="../calculation.html"
     });
-    
+    let total;
     let submitId = document.getElementById("submitId");
     //define buttons for clicking 
     submitId.addEventListener("click", function(){
@@ -22,7 +22,7 @@ $(document).ready(function(){
         var utilityFees = $("#utilityFees").val();
         console.log(utilityFees);
         //define and output value
-        var total = parseFloat(employmentFees)+parseFloat(rentalFees)+parseFloat(utilityFees);
+        total = parseFloat(employmentFees)+parseFloat(rentalFees)+parseFloat(utilityFees);
         console.log(total);
         //define and output value
         
@@ -57,6 +57,6 @@ $(document).ready(function(){
         $("#totalCost").html('');
     });
     $("#nextId").click(function(){
-        window.location.href="/inputProfit.html?date="+$("#dateLeft").val()+'&revenue='+totalRevenueValue;
+        window.location.href="/variableCost.html"+window.location.search+"&fixedCost="+total;
     });
 });

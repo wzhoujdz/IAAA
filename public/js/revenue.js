@@ -77,7 +77,7 @@ $(document).ready(function(){
     });
 
     $("#nextId").click(function(){
-        window.location.href="/inputProfit.html?date="+$("#dateLeft").val()+'&revenue='+totalRevenueValue;
+        window.location.href="/fixedCost.html?date="+$("#dateLeft").val()+'&revenue='+totalRevenueValue;
     });
     
 });

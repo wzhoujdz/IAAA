@@ -39,11 +39,10 @@ $(document).ready(function(){
     
 
     let submitId=document.getElementById("submitId");
-    let dateLeft = document.getElementById("dateLeft");
     let dateRight = document.getElementById("dateRight");
+    let totalCostValue=0;
     submitId.addEventListener("click", function(){
         let submitGetAllValue=[];
-        $("#dateRight").val($("#dateLeft").val());
         for(let i=1;i<=spaceItemNumber;i++){
             let thisMaterialName=$("#materialName"+i).val();
             let thisMaterialNumber=parseFloat($("#materialNumber"+i).val());
@@ -55,7 +54,7 @@ $(document).ready(function(){
             })
         }
         console.log(submitGetAllValue);
-        let totalCostValue=0;
+       totalCostValue=0;
         for(let i=0;i<submitGetAllValue.length;i++){
             $("#showArea").append(
                 '<div style = "float:left;font-size:20px;margin-top:5px;width:400px;text-align:center;">'+
@@ -73,12 +72,11 @@ $(document).ready(function(){
             $("#materialNumber"+i).val(null);
             $("#materialCost"+i).val(null);
         }
-        $("#dateLeft").val(null);
         $("#dateRight").val(null);
         $("#totalCostValueId").html(null);
         $("#showArea").html(null);
     });
     $("#nextId").click(function(){
-        window.location.href="/inputProfit.html?date="+$("#dateLeft").val()+'&variableCost='+totalRevenueValue;
+        window.location.href="/inputProfit.html"+window.location.search+"&variableCost="+totalCostValue;
     });
 });
