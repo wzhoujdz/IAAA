@@ -21,6 +21,9 @@ $(document).ready(function(){
                 '<option value="duck neck">duck neck</option>'+
                 '<option value="tofu">tofu</option>'+
                 '<option value="vegetable">vegetable</option>'+
+                '<option value="sauages">sauages</option>'+
+                '<option value="stewed pork leg">stewed pork leg</option>'+
+                '<option value="smoked fish">smoked fish</option>'+
             '</select>'+
         '</div>'+
         '<div style = "float:left;margin-left: 35px; font-size:20px;margin-top:5px;">'+               
