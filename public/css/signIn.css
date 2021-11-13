@@ -1,5 +1,5 @@
 .item{
-    float:left;
+
     margin-left:300px;
     margin-top:45px;
     font-size:15px;
@@ -17,7 +17,6 @@
     cursor: pointer;
     margin-top: 20px;
 }
-
 
 .dialog{
     width:450px;
