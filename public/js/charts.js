@@ -15,7 +15,7 @@ $(document).ready(function(){
         endTime: endTime,
     }
     //set values for thse components 
-    fetch('/searchCharts', {
+    fetch('/showProfit', {
         method: 'POST',
         headers: {
       'Content-Type': 'application/json'
@@ -24,14 +24,19 @@ $(document).ready(function(){
       })
       .then(response => response.json())
       .then(data => {
-        if(data.result=='searchCharts successfully'){
+        if(data.result=='successfully'){
           //use if...else loop to check whether the charts are correct or not
           console.log(data);
           var myChart = echarts.init(chartContainerID);
           var xAxisData=[];
           var seriesData=[];
           for(var i=0;i<data.data.length;i++){
-            xAxisData.push(data.data[i].month)
+            var thisValue=data.data[i].date;
+            var thisDataArray=  thisValue.split('-');
+            var thisData=thisDataArray[2];
+
+            var realId=parseInt(thisData);
+            xAxisData.push(realId)
             seriesData.push(data.data[i].profit)
           }//use for loop to repeat push the data from database into the chart
           //asign the chart with the values 
