@@ -1,13 +1,34 @@
 $(document).ready(function(){
     let isSuccessful=false;
-    let submitButton = document.getElementById("submitButton")
+    let submitButton = document.getElementById("submitButton");
+    let isMobile= function (value) {
+        var validateReg = /^((\+?86)|(\(\+86\)))?1\d{10}$/;
+        return validateReg.test(value);
+    };
+    let isString= function (value) {
+        var validate = /^[a-zA-Z]{0,}$/;
+        return validate.test(value);
+    };
+    //https://www.jb51.net/article/46095.htm
     //define this submit button for clicking and changing interfere
     submitButton.addEventListener("click", function(){
         var userName=document.getElementById('userName').value;
         var phoneOrEmail=document.getElementById('phoneOrEmail').value;
+        if(isMobile(phoneOrEmail)===false){
+            $('#dialogId').show();
+            $('#dialogContentId').html('The format of your phone number is wrong');
+            isSuccessful=false;
+            return;
+        }
         var password=document.getElementById('password').value;
         var confirmPassword=document.getElementById('confirmPassword').value;
         var securityAnswer=document.getElementById('securityAnswer').value;
+        if(isString(securityAnswer)===false){
+            $('#dialogId').show();
+            $('#dialogContentId').html('The answer to Security Question should be string');
+            isSuccessful=false;
+            return;
+        }
         //get the value when id is here 
         if(password==confirmPassword){
             var data = {
